@@ -1,36 +1,76 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, Link, NavLink, Outlet } from 'react-router-dom';
 
 export function HostVanDetail() {
 
     const { id } = useParams()
-    const [currentVan, setHostVan] = React.useState(null)
+    const [currentVan, setCurrentVan] = React.useState(null)
 
     React.useEffect(()=>{
         fetch(`/api/host/vans/${id}`)
             .then(res => res.json())
-            .then(data => setHostVan(data.vans))
+            .then(data => setCurrentVan(data.vans))
             // eslint-disable-next-line
     }, [])
     
-    if(currentVan){
-        console.log(currentVan.id)
+    if (!currentVan) {
+        return <h2 className="loading">Loading...</h2>
+    }
+
+    const activeStyles = {
+        fontWeight: "bold",
+        textDecoration: "underline",
+        color: "#161616"
     }
     
     return (
-        <>
-            {
-                currentVan ?
-                <div>
-                    <img src={currentVan.imageUrl} width={150} alt="current van"/>
-                    <h2>{currentVan.name}</h2>
-                    <p>{currentVan.price}</p>
-                    <p>{currentVan.type}</p>
+        <section>
+            <Link
+                to=".."
+                relative="path"
+                className="back-button"
+            >&larr; <span>Back to all vans</span></Link>
+
+            <div className="host-van-detail-layout-container">
+                <div className="host-van-detail">
+                    <img src={currentVan.imageUrl} alt="currentvan"/>
+                    <div className="host-van-detail-info-text">
+                        <i
+                            className={`van-type van-type-${currentVan.type}`}
+                        >
+                            {currentVan.type}
+                        </i>
+                        <h3>{currentVan.name}</h3>
+                        <h4>${currentVan.price}/day</h4>
+                    </div>
                 </div>
-                :
-                <h1>Loading...</h1>
-            }
-        </>
+
+
+                <nav className="host-van-detail-nav">
+                    <NavLink 
+                        to="."
+                        end
+                        style={({ isActive }) => isActive ? activeStyles : null}
+                    >
+                        Details    
+                    </NavLink>
+                    <NavLink
+                        to="pricing"
+                        style={({ isActive }) => isActive ? activeStyles : null}
+                    >
+                        Pricing
+                    </NavLink>
+                    <NavLink
+                        to="photos"
+                        style={({ isActive }) => isActive ? activeStyles : null}
+                    >
+                        Photos
+                    </NavLink>
+                </nav>
+
+                <Outlet />
+            </div>
+        </section>
     )
 
 };
