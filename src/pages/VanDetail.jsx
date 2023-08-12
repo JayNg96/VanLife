@@ -1,5 +1,5 @@
 import React from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 
 export function VanDetail() {
     const params = useParams()
@@ -13,6 +13,13 @@ export function VanDetail() {
 
     return (
         <div className="van-detail-container">
+
+            <Link
+                to=".."
+                relative="path"
+                className="back-button"
+            >&larr; <span>Back to all vans</span></Link>
+
             {van ? (
                 <div className="van-detail">
                     <img src={van.imageUrl} alt="van"/>
@@ -23,6 +30,7 @@ export function VanDetail() {
                     <button className="link-button">Rent this van</button>
                 </div>
             ) : <h2>Loading...</h2>}
+
         </div>
     )
 }

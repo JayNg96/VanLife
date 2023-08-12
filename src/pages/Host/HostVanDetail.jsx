@@ -14,7 +14,7 @@ export function HostVanDetail() {
     }, [])
     
     if (!currentVan) {
-        return <h2 className="loading">Loading...</h2>
+        return <h2 className="loading-text">Loading...</h2>
     }
 
     const activeStyles = {

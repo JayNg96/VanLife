@@ -203,7 +203,7 @@ footer {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     gap: 34px;
-    margin-top: 57px;
+    margin: 57px 0;
 }
 
 .van-tile a {
@@ -212,8 +212,8 @@ footer {
 }
 
 .van-tile img {
-    max-width: 100%;
     border-radius: 5px;
+    height: 700px;
 }
 
 .van-list-container button {
@@ -353,7 +353,7 @@ i[class*='van-type-'] {
     padding-inline: 26px;
 }
 
-.host-vans-title {
+.host-vans-title, .loading-text {
     padding-inline: 26px;
 }
 
@@ -460,3 +460,4 @@ i[class*='van-type-'] {
     height: 100px;
     border-radius: 5px;
 }
+

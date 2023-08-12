@@ -18,7 +18,7 @@ export function Vans() {
 
     const vanElements = displayedVans.map(van => (
         <div key={van.id} className="van-tile">
-            <Link to={`/vans/${van.id}`}>
+            <Link to={van.id}>
                 <img src={van.imageUrl} alt="van"/>
                 <div className="van-info">
                     <h3>{van.name}</h3>
@@ -45,10 +45,13 @@ export function Vans() {
                     onClick={() => setSearchParams({type: "rugged"})}
                     className="van-type rugged"
                 >Rugged</button>
-                <button 
-                    onClick={() => setSearchParams({})}
-                    className="van-type clear-filters"
-                >Clear filter</button>
+                { typeFilter && 
+                    <button 
+                        onClick={() => setSearchParams({})}
+                        className="van-type clear-filters"
+                    >Clear filter</button>
+                }
+
             </div>
             <div className="van-list">
                 {vanElements}
