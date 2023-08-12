@@ -6,7 +6,6 @@ export function VanDetail() {
     const [van, setVan] = React.useState(null)
     const location = useLocation()
 
-    console.log(location.state.search)
     React.useEffect(() => {
         fetch(`/api/vans/${params.id}`)
             .then(res => res.json())
@@ -20,7 +19,7 @@ export function VanDetail() {
                 to={`../${location.state.search}`}
                 relative="path"
                 className="back-button"
-            >&larr; <span>Back to all vans</span></Link>
+            >&larr; <span>Back to {location.state.type} vans</span></Link>
 
             {van ? (
                 <div className="van-detail">

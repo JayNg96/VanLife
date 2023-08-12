@@ -7,6 +7,7 @@ html, body {
     padding: 0;
     background-color: #FFF7ED;
     font-family: "Inter", sans-serif;
+
 }
 
 a {
@@ -66,10 +67,13 @@ footer {
     height: 74px;
     display: flex;
     flex-shrink: 0;
-    justify-content: center;
-    align-items: center;
-    margin-top: auto;
     font-weight: 500;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
 }
 
 .link-button {
@@ -108,9 +112,13 @@ footer {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    min-height: 350px;
+    min-height: 500px;
     color: white;
     padding: 45px 23px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .home-container h1 {
@@ -129,7 +137,7 @@ footer {
     text-decoration: none;
     background-color: #FF8C38;
     border: none;
-    width: 100%;
+    width: 50%;
     margin-top: 27px;
     padding-block: .75rem;
     color: white;
@@ -145,8 +153,12 @@ footer {
 
 
 /*** ABOUT PAGE ***/
+.about-page-container {
+    text-align: center;
+}
+
 .about-hero-image {
-    max-width: 100%;
+    width: 40%;
 }
 
 .about-page-content {
@@ -461,3 +473,12 @@ i[class*='van-type-'] {
     border-radius: 5px;
 }
 
+.not-found-container {
+  padding-inline: 26px;
+}
+
+.not-found-container .link-button {
+  width: 100%;
+  background-color: #161616;
+  color: white;
+}
