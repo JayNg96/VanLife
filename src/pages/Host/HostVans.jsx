@@ -8,6 +8,7 @@ export function HostVans() {
         fetch("/api/host/vans")
             .then(res => res.json())
             .then(data => setVans(data.vans))
+
     }, [])
 
     const hostVansEls = vans.map(van => (
@@ -25,7 +26,7 @@ export function HostVans() {
             </div>
         </Link>
     ))
-
+    
     return (
         <section>
             <h1 className="host-vans-title">Your listed vans</h1>
