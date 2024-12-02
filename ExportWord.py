@@ -1,28 +1,20 @@
-With the information below, help me write a performance review feedback to Mike, as well as the area that can be improved. Write as naturally as possible and refrain from using too fancy of a vocabularly.
+Performance Review Feedback for Mike
 
+Strengths:
+Mike has been a great leader and motivator for the team. He’s always encouraging us and sharing his own experiences, which helps create a comfortable environment, especially for new joiners. His reassurance that it’s okay to make mistakes makes the team feel supported and more willing to try.
 
-My ability to motivate, inspire, and guide the team toward solutions. 
-•	Regularly motivates
-•	Sharing of journey
-•	Ensuring new joiner that we’ve all been there before and made mistakes so it’s ok to make mistakes
+Mike regularly shares his knowledge and is patient and kind when pointing out mistakes or helping us break bad habits. He’s also been a great guide for new joiners, offering advice on career paths and reminding us to network, which has been really helpful.
 
-Whether I provided opportunities for others to grow and solve problems independently. 
-•	Regularly share knowledge and correcting our mistakes or bad habit in a patient and kind manner
-•	Guiding new joiner on the career path
-•	Reminds us to network to open up potential path and opportunity
+In challenging situations, Mike communicates well by speaking to us face-to-face to make sure we understand what’s needed. He’s approachable and always encourages us to ask questions, taking the time to explain things further if needed.
 
-How effectively I communicate with and supported the team in challenging situations. 
-•	Communicates effectively by approaching us f2f and ensuring that we understood the objectives
-•	Encourages us not to be afraid to ask questions and will go deeper into details when requested
+He’s open to feedback and adds his own thoughts to improve ideas, showing his professionalism and willingness to collaborate. Mike is also proactive when it comes to identifying risks and making sure everything is in order before submitting work, which gives the team confidence in the process.
 
-My overall approach to decision-making and ensuring ethical, professional standards. 
-•	Acceptance to feedback and also add on opinion to improve said feedback
+Areas for Improvement:
+Sometimes emails have been sent with missing details, which could be avoided with a bit more review before sending. It’s not a big issue, but something to keep an eye on.
 
-My attention to detail and whether I provided thorough, accurate reviews and insights.
-•	Attention to detail can be worked on as seen that email were sometimes sent with missing information due to human error.
+When assigning tasks to new joiners, there have been a few times when follow-up instructions weren’t provided. Being a bit more detailed or checking in could help them feel more confident in what they’re doing.
 
-The clarity and effectiveness of my communication, especially when dealing with complex or urgent matters. 
-•	Communication on task given to new joiner can be improved as sometimes there are no follow up instruction given.
+Summary:
 
-My proactivity in addressing potential risks and providing practical solutions. 
-•	Very proactive in addressing risks that could potentially happen and is very careful with doing things before submitting it.
+Mike has been a strong leader and a great support for the team. By paying closer attention to small details and ensuring tasks are clearly followed up with, he can continue to grow and make an even bigger impact.
+
