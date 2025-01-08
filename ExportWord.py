@@ -19,46 +19,24 @@ for id_, group in df.groupby("ID", dropna=False):  # Keep empty rows intact
         result_rows.append({"ID": None, "Countries": None, "Cities": None})
         continue
 
-    countries = group["Country"].tolist()
-    cities = group["City"].tolist()
-    
-    # Create a dictionary to ensure one country-city pair per row
-    unique_pairs = {}
-    for country, city in zip(countries, cities):
-        if pd.isna(country) and pd.isna(city):
+    # Create lists to hold unique countries and corresponding cities
+    country_city_map = {}
+    for _, row in group.iterrows():
+        country = row["Country"]
+        city = row["City"]
+        if pd.isna(country) or pd.isna(city):
             continue
-        if country not in unique_pairs:
-            unique_pairs[country] = []
-        unique_pairs[country].append(city)
+        if country not in country_city_map:
+            country_city_map[country] = []
+        country_city_map[country].append(city)
 
-    # Add the first country-city pair to the main row
-    base_row = {"ID": id_, "Countries": "", "Cities": ""}
-    remaining_rows = []
-
-    for country, city_list in unique_pairs.items():
-        if base_row["Countries"] == "":
-            base_row["Countries"] = "; ".join(
-                [country if pd.notna(country) else ""] * len(city_list)
-            )
-            base_row["Cities"] = "; ".join(
-                [city if pd.notna(city) else "" for city in city_list]
-            )
-        else:
-            # For additional country-city pairs, add them to separate rows
-            remaining_rows.append(
-                {
-                    "ID": id_,
-                    "Countries": "; ".join(
-                        [country if pd.notna(country) else ""] * len(city_list)
-                    ),
-                    "Cities": "; ".join(
-                        [city if pd.notna(city) else "" for city in city_list]
-                    ),
-                }
-            )
-    
-    result_rows.append(base_row)
-    result_rows.extend(remaining_rows)
+    # Combine countries and cities for each unique ID
+    for country, cities in country_city_map.items():
+        result_rows.append({
+            "ID": id_,
+            "Countries": "; ".join([country] * len(cities)),
+            "Cities": "; ".join(cities),
+        })
 
 # Convert results to a DataFrame
 output_df = pd.DataFrame(result_rows)
