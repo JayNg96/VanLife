@@ -1,20 +1,65 @@
-Performance Review Feedback for Mike
+import pandas as pd
+import re
 
-Strengths:
-Mike has been a great leader and motivator for the team. He’s always encouraging us and sharing his own experiences, which helps create a comfortable environment, especially for new joiners. His reassurance that it’s okay to make mistakes makes the team feel supported and more willing to try.
+# File path
+file_path = "your_file.xlsx"  # Replace with your file path
 
-Mike regularly shares his knowledge and is patient and kind when pointing out mistakes or helping us break bad habits. He’s also been a great guide for new joiners, offering advice on career paths and reminding us to network, which has been really helpful.
+# Read the Excel file into a DataFrame
+df = pd.read_excel(file_path)
 
-In challenging situations, Mike communicates well by speaking to us face-to-face to make sure we understand what’s needed. He’s approachable and always encourages us to ask questions, taking the time to explain things further if needed.
+# Extract the first column
+column_data = df.iloc[:, 0].dropna()  # Drop any NaN values
 
-He’s open to feedback and adds his own thoughts to improve ideas, showing his professionalism and willingness to collaborate. Mike is also proactive when it comes to identifying risks and making sure everything is in order before submitting work, which gives the team confidence in the process.
+# Lists to store names and ids
+names = []
+ids = []
 
-Areas for Improvement:
-Sometimes emails have been sent with missing details, which could be avoided with a bit more review before sending. It’s not a big issue, but something to keep an eye on.
+# Regular expression to match ID pattern (letter followed by 6 digits, optionally enclosed in parentheses)
+id_pattern = r'([a-zA-Z]{1}\d{6})'
 
-When assigning tasks to new joiners, there have been a few times when follow-up instructions weren’t provided. Being a bit more detailed or checking in could help them feel more confident in what they’re doing.
+# Iterate over each row in the column
+for row in column_data:
+    # Split by semicolon to get individual name-id pairs
+    pairs = row.split(';')
+    
+    # Temporary lists for the current row
+    row_names = []
+    row_ids = []
+    
+    # Process each pair of name and ID
+    for pair in pairs:
+        # Find the ID using the regular expression
+        match = re.search(id_pattern, pair)
+        
+        if match:
+            # Extract the ID from the matched group
+            row_ids.append(match.group(0))
+            
+            # Extract the name (everything before the ID or parentheses)
+            name = re.sub(id_pattern, '', pair).strip()
+            row_names.append(name)
+        else:
+            # If no ID is found, add the name and store NA for the ID
+            name = pair.strip()
+            row_names.append(name)
+            row_ids.append('NA')
+    
+    # If there were no IDs found for any names, store 'NA' for each name
+    if not any(id != 'NA' for id in row_ids):
+        row_ids = ['NA'] * len(row_names)
+    
+    # Add the names and IDs for the current row to the main lists
+    names.append(";".join(row_names))
+    ids.append(";".join(row_ids))
 
-Summary:
+# Create a new DataFrame with the names and ids
+output_df = pd.DataFrame({
+    'Names': names,
+    'IDs': ids
+})
 
-Mike has been a strong leader and a great support for the team. By paying closer attention to small details and ensuring tasks are clearly followed up with, he can continue to grow and make an even bigger impact.
+# Save to a new Excel file
+output_file_path = "output.xlsx"  # Replace with your desired output file path
+output_df.to_excel(output_file_path, index=False)
 
+print(f"Names and IDs have been extracted and saved to {output_file_path}")
