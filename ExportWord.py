@@ -15,6 +15,7 @@ for _, row in df.iterrows():
     id_ = row["ID"]
     countries = str(row["Country"]).split(";") if pd.notna(row["Country"]) else []
     cities = str(row["City"]).split(";") if pd.notna(row["City"]) else []
+    word = row["Word"] if "Word" in row and pd.notna(row["Word"]) else None
     
     # Check if there are multiple unique country-city pairs
     if len(set(countries)) > 1:  # If there are multiple unique countries
@@ -32,6 +33,7 @@ for _, row in df.iterrows():
             "ID": id_,
             "Country": "; ".join(combined_country),
             "City": "; ".join(combined_city),
+            "Word": word,
         })
     else:
         # If all countries are the same, keep them combined in one row
@@ -39,6 +41,7 @@ for _, row in df.iterrows():
             "ID": id_,
             "Country": "; ".join(countries),
             "City": "; ".join(cities),
+            "Word": word,
         })
 
 # Convert processed rows to a DataFrame
