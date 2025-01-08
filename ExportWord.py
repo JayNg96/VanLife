@@ -7,38 +7,41 @@ output_file = "output.xlsx"  # Replace with your output file path
 # Read the Excel file
 df = pd.read_excel(input_file)
 
-# Ensure the columns are named as expected
-df = df.rename(columns={"id": "ID", "country": "Country", "city": "City"})
-
-# Group the data by ID
+# Prepare a list to hold processed rows
 result_rows = []
 
-for id_, group in df.groupby("ID", dropna=False):  # Keep empty rows intact
-    if pd.isna(id_):
-        # Handle empty rows by appending them as-is
-        result_rows.append({"ID": None, "Countries": None, "Cities": None})
-        continue
-
-    # Create lists to hold unique countries and corresponding cities
-    country_city_map = {}
-    for _, row in group.iterrows():
-        country = row["Country"]
-        city = row["City"]
-        if pd.isna(country) or pd.isna(city):
-            continue
-        if country not in country_city_map:
-            country_city_map[country] = []
-        country_city_map[country].append(city)
-
-    # Combine countries and cities for each unique ID
-    for country, cities in country_city_map.items():
+# Iterate over each row in the input DataFrame
+for _, row in df.iterrows():
+    id_ = row["ID"]
+    countries = str(row["Country"]).split(";") if pd.notna(row["Country"]) else []
+    cities = str(row["City"]).split(";") if pd.notna(row["City"]) else []
+    
+    # Check if there are multiple unique country-city pairs
+    if len(set(countries)) > 1:  # If there are multiple unique countries
+        seen = set()
+        combined_country = []
+        combined_city = []
+        for country, city in zip(countries, cities):
+            if (country, city) not in seen:
+                combined_country.append(country.strip())
+                combined_city.append(city.strip())
+                seen.add((country, city))
+        
+        # Add combined country and city to the result
         result_rows.append({
             "ID": id_,
-            "Countries": "; ".join([country] * len(cities)),
-            "Cities": "; ".join(cities),
+            "Country": "; ".join(combined_country),
+            "City": "; ".join(combined_city),
+        })
+    else:
+        # If all countries are the same, keep them combined in one row
+        result_rows.append({
+            "ID": id_,
+            "Country": "; ".join(countries),
+            "City": "; ".join(cities),
         })
 
-# Convert results to a DataFrame
+# Convert processed rows to a DataFrame
 output_df = pd.DataFrame(result_rows)
 
 # Save the results to a new Excel file
