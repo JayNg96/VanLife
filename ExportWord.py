@@ -13,13 +13,20 @@ df = df.rename(columns={"id": "ID", "country": "Country", "city": "City"})
 # Group the data by ID
 result_rows = []
 
-for id_, group in df.groupby("ID"):
+for id_, group in df.groupby("ID", dropna=False):  # Keep empty rows intact
+    if pd.isna(id_):
+        # Handle empty rows by appending them as-is
+        result_rows.append({"ID": None, "Countries": None, "Cities": None})
+        continue
+
     countries = group["Country"].tolist()
     cities = group["City"].tolist()
     
     # Create a dictionary to ensure one country-city pair per row
     unique_pairs = {}
     for country, city in zip(countries, cities):
+        if pd.isna(country) and pd.isna(city):
+            continue
         if country not in unique_pairs:
             unique_pairs[country] = []
         unique_pairs[country].append(city)
@@ -30,12 +37,24 @@ for id_, group in df.groupby("ID"):
 
     for country, city_list in unique_pairs.items():
         if base_row["Countries"] == "":
-            base_row["Countries"] = "; ".join([country] * len(city_list))
-            base_row["Cities"] = "; ".join(city_list)
+            base_row["Countries"] = "; ".join(
+                [country if pd.notna(country) else ""] * len(city_list)
+            )
+            base_row["Cities"] = "; ".join(
+                [city if pd.notna(city) else "" for city in city_list]
+            )
         else:
             # For additional country-city pairs, add them to separate rows
             remaining_rows.append(
-                {"ID": id_, "Countries": "; ".join([country] * len(city_list)), "Cities": "; ".join(city_list)}
+                {
+                    "ID": id_,
+                    "Countries": "; ".join(
+                        [country if pd.notna(country) else ""] * len(city_list)
+                    ),
+                    "Cities": "; ".join(
+                        [city if pd.notna(city) else "" for city in city_list]
+                    ),
+                }
             )
     
     result_rows.append(base_row)
