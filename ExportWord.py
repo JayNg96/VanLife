@@ -1,48 +1,61 @@
 import requests
-import zipfile
-import io
+from bs4 import BeautifulSoup
 import pandas as pd
-import pycountry
 
-# Step 1: Download the GeoNames cities file (cities with population >500)
-url = 'http://download.geonames.org/export/dump/cities500.zip'
-print("Downloading cities500.zip...")
-response = requests.get(url)
-if response.status_code == 200:
-    # Extract the zip file in memory and then to a folder
-    with zipfile.ZipFile(io.BytesIO(response.content)) as z:
-        z.extractall('geonames_data')
-    print("Download and extraction complete.")
+def get_cities_from_wikipedia(country):
+    """
+    Fetches the list of cities from the Wikipedia page for a given country.
+    This example assumes the page is titled "List of cities in <country>".
+    """
+    page_title = f"List of cities in {country}"
+    endpoint = "https://en.wikipedia.org/w/api.php"
+    params = {
+        "action": "parse",
+        "page": page_title,
+        "format": "json",
+        "prop": "text",
+        "redirects": True  # follow redirects if page title changes
+    }
+    
+    response = requests.get(endpoint, params=params)
+    data = response.json()
+    
+    # Check if the page was retrieved successfully
+    if "error" in data:
+        print(f"Error retrieving page for {country}: {data['error'].get('info', 'Unknown error')}")
+        return []
+    
+    # Extract HTML content from the JSON response
+    html_content = data["parse"]["text"]["*"]
+    soup = BeautifulSoup(html_content, "html.parser")
+    
+    cities = []
+    
+    # Find all tables with the 'wikitable' class (common for such lists)
+    tables = soup.find_all("table", {"class": "wikitable"})
+    for table in tables:
+        rows = table.find_all("tr")
+        # Skip header row and extract the first cell (assumed to contain the city name)
+        for row in rows[1:]:
+            cells = row.find_all(["td", "th"])
+            if cells:
+                # Get the text of the first cell and remove any extra whitespace
+                city = cells[0].get_text(strip=True)
+                if city and city not in cities:  # avoid duplicates
+                    cities.append(city)
+    return cities
+
+# Specify the country
+country = "India"
+cities = get_cities_from_wikipedia(country)
+
+if cities:
+    # Create a DataFrame with two columns: Country and City
+    df = pd.DataFrame({"Country": [country] * len(cities), "City": cities})
+    
+    # Export to an Excel file
+    output_filename = "wikipedia_cities.xlsx"
+    df.to_excel(output_filename, index=False)
+    print(f"Excel file '{output_filename}' created successfully with {len(cities)} cities from {country}!")
 else:
-    print("Failed to download data")
-    exit(1)
-
-# Step 2: Read the extracted file into a DataFrame
-# The file 'cities500.txt' contains tab-separated values.
-filename = 'geonames_data/cities500.txt'
-
-# GeoNames documentation (columns order):
-# geonameid, name, asciiname, alternatenames, latitude, longitude, feature_class,
-# feature_code, country_code, cc2, admin1 code, admin2 code, admin3 code, admin4 code,
-# population, elevation, dem, timezone, modification date
-columns = ['geonameid', 'name', 'asciiname', 'alternatenames', 'latitude', 'longitude',
-           'feature_class', 'feature_code', 'country_code', 'cc2', 'admin1_code',
-           'admin2_code', 'admin3_code', 'admin4_code', 'population', 'elevation',
-           'dem', 'timezone', 'modification_date']
-
-df = pd.read_csv(filename, sep='\t', header=None, names=columns, low_memory=False)
-
-# Step 3: Map country codes to country names using pycountry
-country_mapping = {country.alpha_2: country.name for country in pycountry.countries}
-df['Country'] = df['country_code'].map(country_mapping)
-
-# Step 4: Create a new DataFrame with only the Country and City (name) columns
-result_df = df[['Country', 'name']].rename(columns={'name': 'City'})
-
-# Optional: If you need a list of cities for a specific country (e.g., India), uncomment the following:
-# result_df = result_df[result_df['Country'] == 'India']
-
-# Step 5: Export the result to an Excel file
-output_filename = 'countries_and_cities.xlsx'
-result_df.to_excel(output_filename, index=False)
-print(f"Excel file '{output_filename}' created successfully!")
+    print("No cities found or an error occurred.")
