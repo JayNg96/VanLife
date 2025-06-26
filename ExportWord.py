@@ -1,100 +1,43 @@
-1. Understand Your Audience
+import pandas as pd
+import os
+from openpyxl import load_workbook
 
-Before diving into the content:
+# Set the directory where your Excel files are located
+folder_path = "your_folder_path_here"
 
-Are they technical (developers, engineers)?
+# Store all combined data
+all_data = []
 
-Are they non-technical (PMs, stakeholders)?
+# Loop through each Excel file in the folder
+for filename in os.listdir(folder_path):
+    if filename.endswith(".xlsx"):
+        file_path = os.path.join(folder_path, filename)
+        xls = pd.ExcelFile(file_path)
 
-What is their experience level with Jira?
+        # Loop through each sheet that contains 'FSLA'
+        for sheet_name in xls.sheet_names:
+            if "FSLA" in sheet_name.upper():  # case-insensitive match
+                df = pd.read_excel(xls, sheet_name=sheet_name, header=None)
 
+                # Skip empty or invalid sheets
+                if df.shape[1] < 2:
+                    continue
 
+                record = {
+                    "File": filename,
+                    "Sheet": sheet_name
+                }
 
----
+                for i in range(len(df)):
+                    key = df.iat[i, 0]
+                    value = df.iat[i, 1]
+                    if pd.notna(key):  # Skip if key is NaN
+                        record[str(key)] = value
 
-2. Define Your Demo Objectives
+                all_data.append(record)
 
-Clearly outline what you want your team to learn or see. For example:
+# Combine all into one DataFrame
+combined_df = pd.DataFrame(all_data)
 
-How your project board is structured (epics, stories, tasks)
-
-How to create/update tickets
-
-Sprint management
-
-Reporting & dashboards
-
-Workflows or automation in place
-
-
-
----
-
-3. Structure Your Jira Demo
-
-Here’s a clear structure you can follow:
-
-I. Introduction (2-3 min)
-
-Quick intro on what Jira is and how your team uses it.
-
-Briefly state your goals for the demo.
-
-
-II. Jira Project Overview (3-5 min)
-
-Show the project board (Scrum/Kanban).
-
-Explain the issue types (Epic, Story, Task, Bug, Sub-task).
-
-Demonstrate the swimlanes/columns and what they represent (To Do, In Progress, Done).
-
-
-III. Ticket Lifecycle (5-7 min)
-
-How to create a ticket.
-
-Fields to fill: summary, description, assignee, story points, labels, etc.
-
-Show transition between statuses and explain the workflow.
-
-Mention linked issues and dependencies.
-
-
-IV. Sprint Management (if using Scrum) (3-5 min)
-
-How to start/end a sprint.
-
-How to prioritize the backlog.
-
-Explain how tasks are assigned and tracked during the sprint.
-
-
-V. Reporting & Dashboards (2-3 min)
-
-Show useful reports: Burndown chart, velocity chart, cumulative flow diagram.
-
-Brief tour of dashboards if your team uses them.
-
-
-VI. Tips & Best Practices (optional, 2-3 min)
-
-Naming conventions.
-
-How to use filters or JQL.
-
-Mention any automation (e.g. auto-assign on status change).
-
-
-VII. Q&A (5-10 min)
-
-
----
-
-4. Preparation Tips
-
-Use a demo project or a copy of your live board (so you don’t accidentally change live data).
-
-Pre-create a few tickets to avoid delays.
-
-Keep it interactive—ask questions or let them try actions (if time allows).
+# Save to Excel
+combined_df.to_excel("combined_FSLA_output.xlsx", index=False)
