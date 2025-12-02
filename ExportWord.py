@@ -1,79 +1,67 @@
-Chapter274,Part1: 1 - Root of All Evil 2
+NovelhallHistory
+Chapter 274，Part2: 2 - Root of All Evil ②
+Name：Strange Grief Wants to Retire ~ The Weakest Hunter Dreams of a Hero ~ Author：
++ -  Turn on  Reset
+Chapter274,Part2: 2 - Root of All Evil 2
 
 Chapter 274 Root of All Evil 2
 
-Part 1
+Part 2
 
-“Cry, somehow...... It has been a really long time since you came here!” (Luke)
+Unlike Tino, Lucia did not seem to be bothered at all when she was being cajoled. She clears her throat as if to regain her composure and attacks me.
 
-Luke, covered in blood, mutters emotionally. I have no idea why, but he seems to be in a very good mood.
+“Rather than that, we are in this situation because Leader did something strange for Luke, but what are you going to do about it!? If things are this broken, even if I use Magic, I can’t fix it, and more importantly, this dojo has a long history, so just repairing it won’t fix――” (Lucia)
 
-It looked terrible from the air, but Thawne’s training ground looked absolutely terrible.? I have absolutely no idea what happened, but the sight of the broken steeple, the gates reduced to rubble, and deep cracks running here and there make my stomach sick.
+“...... Un, un, that’s right.” (Cry)
 
-I had no idea what was going on, but countless gazes pierced me. The disciples of the honored 《Sword Saint (Kensei)》, who had been lying on the ground, rose up with zombie-like movements.
+“!? Listen to me, pro-per-ly!” (Lucia)
 
-I seriously have no clue what’s going on, but for some reason, the bloody Luke seems to be going strong. I seriously have no clue what’s going on at all, seriously none at all!!
+Okay, okay, calm down. There is no such thing as unbreakable things in this world, Lucia. You can’t go back to the past. It is one of the few things I have learned as a Hunter.
 
-Lucia sighs deeply and holds her forehead. She is probably thinking about how she has to clean up again. You have to clean up the mess, you know....... If you let Luke clean up, it will become a big mess again.
+Therefore all we can do is live with the memories of the dojo in our hearts.
 
-Well, one bad thing for the greater good, for the greater good! When I hit on Lucia’s back, our rampaging swordsman yelled out in high spirits with *kirakira* sparkling eyes.
+Feeling enlightened, I was at the mercy of Lucia, who was *gakugaku* coming closer and closer to me, when the senior disciple suddenly said loudly.
 
-“Lately, the number of people who have mock battles with me has been decreasing, and my sword just wanted to drink some blood. So Cry, thank you! Forever!” (Luke)
+“There is no problem! ...... Desu. All this is the result of our immaturity! There is no need for Lucia-san to worry about it, desu!” (Nadori)
 
-“No thank you, forever, yeaaah!” (Cry)
+He completely flipped sides. And his eyes were staring at Lucia, not at me.
 
-He gives me a high-five pose, so I clap his high-five as I get swept away.
+You sound just like Kruz tho’......
 
-I am glad you are having fun...... And after all, the blood Luke is bathed in seems to belong to someone else’s. I gave him a wooden sword so he doesn’t cut people unnecessarily, but what’s the point if he cuts people with it anyway!
+In front of me, who was amazed, the senior disciple continued in a loud voice so that everyone could hear him.
 
-However, this tsukkomi has been around for a while. Causing a lot of damage and troubling the 《Sword Saint (Kensei)》 is also no new news. Ordinary people die if they are cut and bleed heavily, but the endurance of a swordsman who has absorbed Mana Material reaches an inhuman level. If there were any deaths, they would have condemned him more, so I guess they barely escaped death this time.
+It is the same with 《Abyssal Fire of Destruction (Shin En Kametsu)》, why are the old people in this country so energetic............ Please keep staying this healthy.
 
-I was in a panic at first, but I got used to it. Swordsmen are really tough.
+The disciples were speechless at the question which could not even be called a difficult one, but eventually, the senior disciple lowered his head and said in a stifled voice.
 
-For the time being, as his friend, I will verify how he is.
+“........................ Kuh. No way, just because I saw the black-haired Magi that I admire, I never thought that I would forget――That I had been captivated by the magic sword and had my body controlled. I am ashamed of the weakness of my heart, desu.” (Nadori)
 
-“Are you hurt?” (Cry)
+You should really be ashamed of yourself. Seriously. There are plenty of black-haired Magi out there............ Like Kryhi Andrichhi!
 
-“Naaah, no problem. I avoided most of them, and if I had to say, I’d say the only big wound was this one.” (Luke)
+Then I realized that the senior disciple had said something that I couldn’t ignore.
 
-“!! My-My apologies. It is...... It is just that she is, too beautiful............” (Nadori)
+Huh............? I definitely thought that Luke used the magic sword and caused a lot of injuries, but maybe that is not the case?
 
-Luke’s senior disciple who was standing directly in front of him, said with a hardened expression on his face.
+Thinking calmly, most of the disciples here would not survive if Luke, who is already plenty powerful, used a magic sword.
 
-............ Huh? I unintentionally looked at Lucia, but she also blinked her eyes in wonder.
+What, I was worried for nothing. Let’s go home and sleep.
 
-This is the first time I have seen this pattern, so I don’t know how to deal with it, but――――I fearfully called out to him.
+When I turned on my heel and tried to walk past the 《Sword Saint (Kensei)》, a heavy force was suddenly applied to my shoulders.
 
-“.................. You know that telling the truth is not a compliment, right?” (Cry)
-
-“!? Ni-Nii-san!?” (Lucia)
-
-The disciples were stunned. Huh? Is it possible that just like Martis-san is weak against Tino, these people are weak against Lucia?
-
-What’s up with these guys, they look like a bunch of rough people, but they have a pretty cute side too.? I say while *bambam” slapping his back in a friendly manner.
-
-“You didn’t have enough mental training.” (Cry)
-
-“............ Ugh...... So-Sorry............” (Nadori)
-
-“............ That’s why Luke cut you down.” (Cry)
-
-“!? Th-That has nothing to do with――” (Nadori)
-
-Next time I get a complaint here, I will bring Lucia with me. But still, for you to be unable to move just because of one single girl, your tolerance is too low.
-
-I think I heard him say that mental and physical training is the basis of a swordsman, but he did not train enough at all. Well, I can’t say anything about it because there are people like Luke who are very strong despite fatally lacking one of these things.
+When I look behind me, our eyes meet. Thawne smiled in a different way than before and started to walk away. ――While holding me.
 
 TL notes:
 
 Thanks for reading!
 
-Starting to have One piece withdrawal...
+I updated the cover on the main page to volume 8 cover.
 
-Need my One piece chapter...
+Cry almost escaped thanks to Lucia
+
+What excuse will Cry say in front of the Sword Saint!?
 
 Tchao à plus!
+Previous| Index| Next
+《Strange Grief Wants to Retire ~ The Weakest Hunter Dreams of a Hero ~》all content from the Internet, or users upload, Our purpose is to promote the original author of the novel. Welcome to reading and collection 《Strange Grief Wants to Retire ~ The Weakest Hunter Dreams of a Hero ~》 latest chapter.
 
-Footnotes
-
-Here Luke says “thank you forever” in English.And here Cry also respond everything in 
+© Copyright Novelhall.Com. All Rights Reserved. All Novel | Sitemap | DMCA | Privacy Policy | Book seeking
